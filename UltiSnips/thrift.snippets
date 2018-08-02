@@ -1,0 +1,39 @@
+# Snippets for thrift
+
+priority -50
+
+# when to abbriviate and when not?
+# b doesn't work here, because it ignores whitespace
+# optional local name?
+snippet service "Service declaration" b
+service ${1:name} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet func "Func declaration" b
+$1Request ${1:name} (1: $1Response req)
+endsnippet
+
+
+snippet struct "Struct declaration" b
+struct ${1:Struct} {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet request "Struct declaration" b
+struct ${1:Struct}Request {
+	${0:${VISUAL}}
+
+	255: required base.Base Base,
+}
+endsnippet
+
+snippet response "Struct declaration" b
+struct ${1:Struct}Response {
+	${0:${VISUAL}}
+
+	255: required base.BaseResp BaseResp,
+}
+endsnippet
